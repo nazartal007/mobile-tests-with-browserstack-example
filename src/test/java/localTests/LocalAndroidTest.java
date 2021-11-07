@@ -17,24 +17,25 @@ public class LocalAndroidTest extends LocalBaseTest {
         back();
         step("Type search", () -> {
             $(MobileBy.AccessibilityId("Search Wikipedia")).click();
-            $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).val("BrowserStack");
+            $(MobileBy.id("search_src_text")).val("BrowserStack");
         });
         step("Verify content found", () ->
-                $$(MobileBy.id("org.wikipedia.alpha:id/page_list_item_title"))
+                $$(MobileBy.id("page_list_item_title"))
                         .shouldHave(sizeGreaterThan(0)));
     }
 
     @Test
     @DisplayName("another test")
     void wikipediaAnotherTest() {
+        back();
         step("Tap to tree dots menu", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/menu_overflow_button")).click();
+            $(MobileBy.id("nav_more_container")).click();
         });
         step("Tap to login", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name")).click();
+            $(MobileBy.id("main_drawer_login_button")).click();
         });
         step("Verify section title", () -> {
-            $(MobileBy.xpath("//*[@class = 'android.widget.TextView']")).shouldHave(Condition.text("Log in to Wikipedia"));
+            $(MobileBy.xpath("//*[@resource-id='org.wikipedia.alpha:id/action_bar']/android.widget.TextView")).shouldHave(Condition.text("Create an account"));
         });
     }
 }
