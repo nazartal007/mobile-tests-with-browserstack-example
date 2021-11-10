@@ -26,10 +26,14 @@ public class LocalMobileDrivers implements WebDriverProvider {
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
 
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "Pixel_4_API_30");
-        desiredCapabilities.setCapability("version", "11.0");
+//        desiredCapabilities.setCapability("deviceName", "Pixel_4_API_30");
+//        desiredCapabilities.setCapability("version", "11.0");
+        desiredCapabilities.setCapability("deviceName", "d36de224");
+        desiredCapabilities.setCapability("version", "11");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
+        desiredCapabilities.setCapability("locale", "ru");
+        desiredCapabilities.setCapability("language", "ru");
         desiredCapabilities.setCapability("app", getAbsolutePath("src/test/resources/app-alpha-universal-release.apk"));
 
         return new AndroidDriver(getAppiumUrl(), desiredCapabilities);

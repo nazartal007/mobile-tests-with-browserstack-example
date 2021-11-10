@@ -1,8 +1,8 @@
-package localTests;
+package selenoidTests;
 
 import com.codeborne.selenide.Configuration;
-import drivers.BrowserstackMobileDrivers;
 import drivers.LocalMobileDrivers;
+import drivers.SelenoidMobileDrivers;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -14,12 +14,12 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.getSessionId;
 
-public class LocalBaseTest {
+public class SelenoidBaseTest {
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
 
-        Configuration.browser = LocalMobileDrivers.class.getName();
+        Configuration.browser = SelenoidMobileDrivers.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
