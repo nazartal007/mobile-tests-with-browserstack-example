@@ -15,7 +15,7 @@ public class SelenoidMobileDrivers implements WebDriverProvider {
 
     public static URL getSelenoidUrl() {
         try {
-            return new URL("https://user1:1234@selenoid.autotests.cloud/wd/hub");
+            return new URL("http://localhost:4444/wd/hub");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,7 +26,7 @@ public class SelenoidMobileDrivers implements WebDriverProvider {
 
         desiredCapabilities.setCapability("platformName", "Android");
         desiredCapabilities.setCapability("deviceName", "android");
-        desiredCapabilities.setCapability("version", "8.1");
+        desiredCapabilities.setCapability("version", "10.0");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("locale", "en");
